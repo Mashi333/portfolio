@@ -8,6 +8,50 @@
 body {
   color: #ededed;
   background: rgb(6, 8, 27);
+  width: 100%;
+}
+
+.home-img {
+  border-radius: 50%;
+  width: 430px;
+  height: 430px;
+  border: 5px solid #0ef;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home-img img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.about {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 6rem;
+}
+
+.about-img {
+  border-radius: 50%;
+  width: 430px;
+  height: 430px;
+  border: 5px solid #0ef;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 50px;
+}
+
+.about-img img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 .header {
@@ -23,15 +67,9 @@ body {
   z-index: 100;
 }
 
-.logo {
-  position: relative;
-  font-size: 25px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: default;
-  opacity: 0;
-  animation: slideRight 1s ease forwards;
+.navstyle {
+  text-align: right;
+  margin-top: 20px;
 }
 
 .navbar a {
@@ -40,11 +78,12 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 35px;
+  margin-left: 25px;
+  margin-right: 15px;
   transition: 0.3s;
   opacity: 0;
   animation: slideTop 0.5s ease forwards;
-  
+  animation-delay: calc(0.2s * var(--i));
 }
 
 .navbar a:hover {
@@ -70,23 +109,35 @@ body {
 .home-content h3 {
   font-size: 32px;
   font-weight: 700;
+  opacity: 0;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 0.7s;
 }
 
 .home-content h3 span {
   color: #0ef;
 }
+
 .home-content h3:nth-of-type(2) {
   margin-bottom: 30px;
+  animation: slideTop 1s ease forwards;
+  animation-delay: 0.7s;
 }
 
 .home-content h1 {
   font-size: 54px;
   font-weight: 700;
   margin: -3px 0;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+  animation-delay: 1s;
 }
 
 .home-content p {
   font-size: 16px;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 1s;
 }
 
 .home-sci a {
@@ -101,7 +152,15 @@ body {
   font-size: 20px;
   color: #0ef;
   text-decoration: none;
+  transition: 0.5s ease;
   margin: 30px 15px 30px 0;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #0ef;
+  text-decoration: none;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
 }
 
 .home-sci a:hover {
@@ -119,6 +178,10 @@ body {
   letter-spacing: 1px;
   text-decoration: none;
   font-weight: 600;
+  opacity: 0;
+  animation: slideTop 1s ease forwards;
+  animation-delay: 2s;
+  box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
 }
 
 .btn-box:hover {
@@ -138,7 +201,29 @@ body {
 
 @keyframes slideTop {
   0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideBottom {
+  0% {
     transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateY(100px);
     opacity: 0;
   }
   100% {
