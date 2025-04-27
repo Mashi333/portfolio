@@ -451,9 +451,16 @@ section {
   width: 120px;
   height: 160px;
 }*/
+
 .skills {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.skills h1 {
+  text-align: center;
 }
 
 .skill ul li {
@@ -464,6 +471,11 @@ section {
   text-transform: uppercase;
   text-align: left;
   font-style: normal;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .skill {
